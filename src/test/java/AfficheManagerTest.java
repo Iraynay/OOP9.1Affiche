@@ -5,13 +5,14 @@ import ru.netology.manager.AfficheManager;
 
 public class AfficheManagerTest {
 
-    AfficheItem first = new AfficheItem(1,"Бладшот");
+    AfficheItem first = new AfficheItem(1, "Бладшот");
     AfficheItem second = new AfficheItem(2, "Вперед");
-    AfficheItem third = new AfficheItem(3,"Отель Белград");
+    AfficheItem third = new AfficheItem(3, "Отель Белград");
     AfficheItem fourth = new AfficheItem(4, "Джентельмены");
     AfficheItem fifth = new AfficheItem(5, "Человек-невидимка");
+
     @Test
-            public void managerFindLastTest() {
+    public void managerFindLastTest() {
         AfficheManager testManager = new AfficheManager();
 
         testManager.add(first);
@@ -24,8 +25,9 @@ public class AfficheManagerTest {
         AfficheItem[] actual = testManager.findLast(3);
         AfficheItem[] expected = {fifth, fourth, third};
 
-        Assertions.assertArrayEquals (expected, actual);
+        Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void managerFindAllTest() {
         AfficheManager testManager = new AfficheManager();
@@ -40,6 +42,7 @@ public class AfficheManagerTest {
         AfficheItem[] actual = testManager.findAll();
         AfficheItem[] expected = {first, second, third, fourth, fifth};
 
-        Assertions.assertArrayEquals (expected, actual);
+        Assertions.assertArrayEquals(expected, actual);
     }
+
 }
