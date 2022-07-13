@@ -4,19 +4,17 @@ import ru.netology.AfficheItem.AfficheItem;
 
 
 public class AfficheManager {
-    private int resultLengthForLast = 10;
-
-    public int setResultLengthForLast(int resultLengthForLast) {
-        this.resultLengthForLast = 10;
-        return resultLengthForLast;
-    }
-
-    public int getManufacturer() {
-        return resultLengthForLast;
-    }
-
-
+    private int resultLengthForLast;
     private AfficheItem[] items = new AfficheItem[0];
+
+    public AfficheManager(int resultLengthForLast) {
+        this.resultLengthForLast = resultLengthForLast;
+    }
+
+    public AfficheManager() {
+        this.resultLengthForLast = 10;
+    }
+
 
     public void add(AfficheItem item) {
         int length = items.length + 1;
