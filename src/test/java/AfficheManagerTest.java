@@ -20,9 +20,9 @@ public class AfficheManagerTest {
         testManager.add(third);
         testManager.add(fourth);
         testManager.add(fifth);
-        testManager.findLast(3);
+        testManager.findLast();
 
-        AfficheItem[] actual = testManager.findLast(3);
+        AfficheItem[] actual = testManager.findLast();
         AfficheItem[] expected = {fifth, fourth, third};
 
         Assertions.assertArrayEquals(expected, actual);

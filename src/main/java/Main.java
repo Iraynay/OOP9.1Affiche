@@ -17,7 +17,7 @@ public class Main {
         AfficheItem eleventh = new AfficheItem(11, "Пропавшая");
 
 
-        AfficheManager manager = new AfficheManager();
+        AfficheManager manager = new AfficheManager(6);
 
         manager.add(first);
         manager.add(second);
@@ -33,7 +33,7 @@ public class Main {
 
 
         AfficheItem[] all = manager.findAll();
-        AfficheItem[] all1 = manager.findLast(4);
+        AfficheItem[] all1 = manager.findLast();
 
     }
 }

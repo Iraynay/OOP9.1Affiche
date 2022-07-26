@@ -38,7 +38,7 @@ public class AfficheManager {
     }
 
 
-    public AfficheItem[] findLast(int resultLengthForLast) {
+    public AfficheItem[] findLast() {
         int resultLength = resultLengthForLast;
         AfficheItem[] result = new AfficheItem[resultLength];
         for (int i = 0; i < result.length; i++) {
