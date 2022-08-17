@@ -6,14 +6,14 @@ import ru.netology.AfficheItem.AfficheItem;
 public class AfficheManager {
     private int resultLengthForLast;
     private AfficheItem[] items = new AfficheItem[0];
-
+    public AfficheManager() {
+        this.resultLengthForLast = 10;
+    }
     public AfficheManager(int resultLengthForLast) {
         this.resultLengthForLast = resultLengthForLast;
     }
 
-    public AfficheManager() {
-        this.resultLengthForLast = 10;
-    }
+
 
 
     public void add(AfficheItem item) {
@@ -45,6 +45,7 @@ public class AfficheManager {
             int index = items.length - i - 1;
             result[i] = items[index];
         }
+
         return result;
     }
 }

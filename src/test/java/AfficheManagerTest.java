@@ -10,9 +10,15 @@ public class AfficheManagerTest {
     AfficheItem third = new AfficheItem(3, "Отель Белград");
     AfficheItem fourth = new AfficheItem(4, "Джентельмены");
     AfficheItem fifth = new AfficheItem(5, "Человек-невидимка");
+    AfficheItem sixth = new AfficheItem(6, "Тролли.Мировой тур");
+    AfficheItem seventh = new AfficheItem(7, "Номер один");
+    AfficheItem eighth = new AfficheItem(8, "Молодой человек");
+    AfficheItem ninth = new AfficheItem(9, "Дикая");
+    AfficheItem tenth = new AfficheItem(10, "Одна");
+    AfficheItem eleventh = new AfficheItem(11, "Пропавшая");
 
     @Test
-    public void managerFindLastTest() {
+    public void managerFindLastWOSetLimitOverTest() {
         AfficheManager testManager = new AfficheManager();
 
         testManager.add(first);
@@ -20,14 +26,59 @@ public class AfficheManagerTest {
         testManager.add(third);
         testManager.add(fourth);
         testManager.add(fifth);
-        testManager.findLast();
+        testManager.add(sixth);
+        testManager.add(seventh);
+        testManager.add(eighth);
+        testManager.add(ninth);
+        testManager.add(tenth);
+        testManager.add(eleventh);
+
 
         AfficheItem[] actual = testManager.findLast();
-        AfficheItem[] expected = {fifth, fourth, third};
+        AfficheItem[] expected = {eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void managerFindLastWOSetLimitLessTest() {
+        AfficheManager testManager = new AfficheManager();
+
+        testManager.add(first);
+        testManager.add(second);
+        testManager.add(third);
+        testManager.add(fourth);
+        testManager.add(fifth);
+
+
+
+        AfficheItem[] actual = testManager.findLast();
+        AfficheItem[] expected = {fifth, fourth, third, second, first};
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void managerFindLastSetLimitOverTest() {
+        AfficheManager testManager = new AfficheManager();
+
+        testManager.add(first);
+        testManager.add(second);
+        testManager.add(third);
+        testManager.add(fourth);
+        testManager.add(fifth);
+        testManager.add(sixth);
+        testManager.add(seventh);
+        testManager.add(eighth);
+        testManager.add(ninth);
+        testManager.add(tenth);
+        testManager.add(eleventh);
+
+
+        AfficheItem[] actual = testManager.findLast();
+        AfficheItem[] expected = {eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
     @Test
     public void managerFindAllTest() {
         AfficheManager testManager = new AfficheManager();
@@ -37,6 +88,7 @@ public class AfficheManagerTest {
         testManager.add(third);
         testManager.add(fourth);
         testManager.add(fifth);
+
         testManager.findAll();
 
         AfficheItem[] actual = testManager.findAll();
