@@ -18,6 +18,28 @@ public class AfficheManagerTest {
     AfficheItem eleventh = new AfficheItem(11, "Пропавшая");
 
     @Test
+    public void managerFindLastWOSetLimitExactlyTest() {
+        AfficheManager testManager = new AfficheManager();
+
+        testManager.add(first);
+        testManager.add(second);
+        testManager.add(third);
+        testManager.add(fourth);
+        testManager.add(fifth);
+        testManager.add(sixth);
+        testManager.add(seventh);
+        testManager.add(eighth);
+        testManager.add(ninth);
+        testManager.add(tenth);
+
+
+        AfficheItem[] actual = testManager.findLast();
+        AfficheItem[] expected = {tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
     public void managerFindLastWOSetLimitOverTest() {
         AfficheManager testManager = new AfficheManager();
 
@@ -39,6 +61,7 @@ public class AfficheManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void managerFindLastWOSetLimitLessTest() {
         AfficheManager testManager = new AfficheManager();
@@ -50,7 +73,6 @@ public class AfficheManagerTest {
         testManager.add(fifth);
 
 
-
         AfficheItem[] actual = testManager.findLast();
         AfficheItem[] expected = {fifth, fourth, third, second, first};
 
@@ -59,7 +81,7 @@ public class AfficheManagerTest {
 
     @Test
     public void managerFindLastSetLimitOverTest() {
-        AfficheManager testManager = new AfficheManager();
+        AfficheManager testManager = new AfficheManager(5);
 
         testManager.add(first);
         testManager.add(second);
@@ -75,10 +97,51 @@ public class AfficheManagerTest {
 
 
         AfficheItem[] actual = testManager.findLast();
-        AfficheItem[] expected = {eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second};
+        AfficheItem[] expected = {eleventh, tenth, ninth, eighth, seventh};
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void managerFindLastSetLimitLessTest() {
+        AfficheManager testManager = new AfficheManager(5);
+
+        testManager.add(first);
+        testManager.add(second);
+        testManager.add(third);
+        testManager.add(fourth);
+        testManager.add(fifth);
+        testManager.add(sixth);
+
+
+        AfficheItem[] actual = testManager.findLast();
+        AfficheItem[] expected = {sixth, fifth, fourth, third, second,};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void managerFindLastSetLimitExactlyTest() {
+        AfficheManager testManager = new AfficheManager(4);
+
+        testManager.add(first);
+        testManager.add(second);
+        testManager.add(third);
+        testManager.add(fourth);
+        testManager.add(fifth);
+        testManager.add(sixth);
+        testManager.add(seventh);
+        testManager.add(eighth);
+        testManager.add(ninth);
+        testManager.add(tenth);
+
+
+        AfficheItem[] actual = testManager.findLast();
+        AfficheItem[] expected = {tenth, ninth, eighth, seventh};
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
     @Test
     public void managerFindAllTest() {
         AfficheManager testManager = new AfficheManager();

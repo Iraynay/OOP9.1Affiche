@@ -1,6 +1,8 @@
 import ru.netology.manager.AfficheManager;
 import ru.netology.AfficheItem.AfficheItem;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] Args) {
@@ -33,7 +35,9 @@ public class Main {
 
 
         AfficheItem[] all = manager.findAll();
+        System.out.println("All:" + Arrays.toString(all));
         AfficheItem[] all1 = manager.findLast();
+        System.out.println("findLast:" + Arrays.toString(all1));
 
     }
 }
