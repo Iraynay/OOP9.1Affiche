@@ -5,15 +5,16 @@ import ru.netology.AfficheItem.AfficheItem;
 
 public class AfficheManager {
     private int resultLengthForLast;
+    private String earlyExit = "Не сохранено достаточно фильмов";
     private AfficheItem[] items = new AfficheItem[0];
+
     public AfficheManager() {
         this.resultLengthForLast = 10;
     }
+
     public AfficheManager(int resultLengthForLast) {
         this.resultLengthForLast = resultLengthForLast;
     }
-
-
 
 
     public void add(AfficheItem item) {
@@ -44,6 +45,7 @@ public class AfficheManager {
         for (int i = 0; i < result.length; i++) {
             int index = items.length - i - 1;
             result[i] = items[index];
+
         }
 
         return result;
