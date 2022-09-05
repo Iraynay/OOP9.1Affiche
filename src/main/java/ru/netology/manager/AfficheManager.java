@@ -12,8 +12,8 @@ public class AfficheManager {
         this.resultLengthForLast = 10;
     }
 
-    public AfficheManager(int resultLengthForLast) {
-        this.resultLengthForLast = resultLengthForLast;
+    public AfficheManager(int resultLengthForLast1) {
+        this.resultLengthForLast = resultLengthForLast1;
     }
 
 
@@ -40,17 +40,32 @@ public class AfficheManager {
 
 
     public AfficheItem[] findLast() {
-        int resultLength = resultLengthForLast;
+        int resultLength;
+        if (this.resultLengthForLast == 10) {
+            resultLength = items.length;
+            if (items.length > 10) {
+                resultLength = 10;
+            }
+        } else {
+            resultLength = resultLengthForLast;
+        }
         AfficheItem[] result = new AfficheItem[resultLength];
         for (int i = 0; i < result.length; i++) {
             int index = items.length - i - 1;
             result[i] = items[index];
-
         }
-
         return result;
+//    {
+//        int resultLength = resultLengthForLast;
+//        AfficheItem[] result = new AfficheItem[resultLength];
+//        for (int i = 0; i < result.length; i++) {
+//            int index = items.length - i - 1;
+//            result[i] = items[index];
+//
+//        }
+//
+//        return result;
+//    }
     }
 }
-
-
 
