@@ -41,11 +41,8 @@ public class AfficheManager {
 
     public AfficheItem[] findLast() {
         int resultLength;
-        if (this.resultLengthForLast == 10) {
+        if (this.resultLengthForLast > items.length) {
             resultLength = items.length;
-            if (items.length > 10) {
-                resultLength = 10;
-            }
         } else {
             resultLength = resultLengthForLast;
         }
